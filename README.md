@@ -1,6 +1,6 @@
 BEASTifier
 ====================
-Generate a heap of BEAST xml files for simulation experiments
+Generate a heap of BEAST-formatted xml files for simulation experiments
 Compile
 ---------------
 
