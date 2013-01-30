@@ -11,7 +11,7 @@ then it will be used to initialize the BEAST analysis. Failing this, a starting 
 Compile
 ---------------
 
-In a  terminal prompt, type:
+In a  terminal prompt in the src directory, type:
 
 	make
 Usage
