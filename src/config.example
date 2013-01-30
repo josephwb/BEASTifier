@@ -1,0 +1,14 @@
+# this is a comment
+ 	 # so is this!
+-alist files.txt
+-mods GTR HKY+I TrN+G K80+IG
+-clock ucln uced randlocal
+-mcmc 25000000
+   -tsamp 10000
+-psamp 10000
+-ssamp 1000
+-tprior bd
+-overwrite
+#-logphy
+-rprior unif 0.09999999 0.10000001
+# -fixtree

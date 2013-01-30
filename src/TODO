@@ -1,0 +1,7 @@
+// new filename form: b_1_d_0.5_a_0.9_n_100_JC_4.NEX
+1. make object-oriented - DONE
+2. make config file option (mandatory?) - DONE
+3. option for to NOT estimate clock rate (e.g. relative)
+4. implement random local clock - DONE
+5. allow more nuanced user priors
+6. update help/usage - DONE

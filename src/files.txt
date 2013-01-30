@@ -1,0 +1,3 @@
+b_1_d_0_a_0.1_n_25_sim_JC_rep_1.NEX
+b_1_d_0_a_0.1_n_25_sim_HKY_rep_1.NEX
+b_1_d_0_a_0.1_n_25_sim_GTR_rep_1.NEX
