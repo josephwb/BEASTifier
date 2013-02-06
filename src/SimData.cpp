@@ -109,8 +109,6 @@ void SimData::setNumTaxaChar (string & seqFileName, int & numTaxa, int & numChar
 			}
 		}
 	}
-	inputUserFile.close();
-
 	//cout << endl;
 	inputUserFile.close();
 }
