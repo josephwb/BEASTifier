@@ -41,7 +41,7 @@ where 'config_filename' contains all analysis settings. Parameters are listed on
 	      - e.g. 'GTR+IG' = good; 'GTR+I+G' no es bueno.
 	   - default: -mods JC HKY GTR JC+G HKY+G GTR+G
 	-clock: list of flavour(s) of clock model to implement.
-	   - supported models: 'strict' or 'ucln' of 'uced'
+	   - supported models: 'strict' or 'ucln' or 'uced' or 'randlocal'
 	   - default = -clock ucln
 	-mcmc: the number of mcmc generations to run analysis.
 	   - default: -mcmc 20000000
