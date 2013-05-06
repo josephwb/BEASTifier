@@ -1,5 +1,5 @@
 # Ignore specific files
 .DS_Store
-.Rhistoryi
+.Rhistory
 OLD.tgz
 data
