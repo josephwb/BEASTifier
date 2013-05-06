@@ -65,7 +65,7 @@ int year = 2013;
 
 bool DEBUG = false;
 
-int main(int argc, char *argv[]) {
+int main (int argc, char *argv[]) {
 
 	vector <string> listFileNames;
  	int fileCounter = 0;
@@ -78,6 +78,7 @@ int main(int argc, char *argv[]) {
 	
 // 	cout << "listFileNames.size() = " << listFileNames.size() << endl;
 // 	cout << "ASet.getSubModels().size() = " << ASet.getSubModels().size() << endl;
+//	cout << "ASet.getTreeManipulation() = " << ASet.getTreeManipulation() << endl;
 	
 	for (int i = 0; i < int(listFileNames.size()); i++) { // loop over file names
 	

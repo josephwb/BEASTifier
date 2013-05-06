@@ -43,6 +43,7 @@ BEASTXML::BEASTXML (SimData & data, int const& modelIndex, int const& clockIndex
 	treeSampling = ASet.treeSampling;
 	logPhylograms = ASet.logPhylograms;
 	overwrite = ASet.overwrite;
+	manipulateTreeTopology = ASet.manipulateTreeTopology;
 		
 	XMLOutFileName = setXMLOutFileName(overwrite);
 	BEAST_xml_code.open(XMLOutFileName.c_str());
