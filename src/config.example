@@ -7,7 +7,7 @@
    -tsamp 10000
 -psamp 10000
 -ssamp 1000
--tprior bd
+-tprior yule bd
 -overwrite
 #-logphy
 -rprior unif 0.09999999 0.10000001

@@ -21,7 +21,7 @@ extern int year;
 
 // functions marked as "not used at the moment" were taken from code for partitioned model analyses
 
-BEASTXML::BEASTXML (SimData & data, int const& modelIndex, int const& clockIndex, AnalysisSettings ASet)
+BEASTXML::BEASTXML (SimData & data, int const& modelIndex, int const& clockIndex, int const& treePriorIndex, AnalysisSettings ASet)
 {
 // extract information from SimData object
 	root = data.root;
@@ -34,8 +34,9 @@ BEASTXML::BEASTXML (SimData & data, int const& modelIndex, int const& clockIndex
 // analysis parameters. others will include e.g. mcmc parameters
 	analyzeModel = ASet.getSubModel(modelIndex);
 	setDNASubModel(analyzeModel, partitionSubstitutionModel, partitionSiteModel);
-	clockFlavour = ASet.getClockFlavour(clockIndex);	
-	treePrior = ASet.treePrior;
+	clockFlavour = ASet.getClockFlavour(clockIndex);
+	treePrior = ASet.getTreePrior(treePriorIndex);
+	
 	rootPrior = ASet.rootPrior;
 	mcmcLength = ASet.mcmcLength;
 	screenSampling = ASet.screenSampling;

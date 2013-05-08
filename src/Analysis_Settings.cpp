@@ -11,12 +11,10 @@ using namespace std;
 
 AnalysisSettings::AnalysisSettings ()
 :
-	treePrior("bd"), clockFlavour("ucln"),
-	manipulateTreeTopology(true), logPhylograms(false), overwrite(false),
+	treePrior("bd"), manipulateTreeTopology(true), logPhylograms(false), overwrite(false),
 	mcmcLength(20000000), screenSampling(500), parameterSampling(1000), treeSampling(5000)
 {
-	
-
+	intializeDefaults();
 }
 
 vector <string> AnalysisSettings::readListFromFile(string const& fileName) {
@@ -34,69 +32,57 @@ vector <string> AnalysisSettings::readListFromFile(string const& fileName) {
 	return (listElements);
 }
 
-void AnalysisSettings::initializeSubModels () {
-	string init[] = {"JC", "HKY", "GTR", "JC+G", "HKY+G", "GTR+G"}; // initialized set; may be superseded by user input
-	vector <string> models(init, init + sizeof(init) / sizeof(string));
-}
-
-
-
-void AnalysisSettings::setSubModels (vector <string> const& subModels) {
-	models = subModels;
-}
-
-
-// void AnalysisSettings::setSubModelsOLD (string & fileName) {
-// 	checkValidInputFile(fileName);
-// 	models.clear();
-// 	models = readListFromFile(fileName);
-// }
-
-vector <string> AnalysisSettings::getSubModels () {
-	return models;
-}
-
-string AnalysisSettings::getSubModel (int const& modelIndex) {
-	return models[modelIndex];
-}
-
 void AnalysisSettings::setMcmcLength (string val) {
 	mcmcLength = convertStringtoInt(val);
-}
-
-int AnalysisSettings::getMcmcLength () {
-	return mcmcLength;
 }
 
 void AnalysisSettings::setScreenSampling (string val) {
 	screenSampling = convertStringtoInt(val);
 }
 
-int AnalysisSettings::getScreenSampling () {
-	return screenSampling;
-}
-
 void AnalysisSettings::setParameterSampling (string val) {
 	parameterSampling = convertStringtoInt(val);
-}
-
-int AnalysisSettings::getParameterSampling () {
-	return parameterSampling;
 }
 
 void AnalysisSettings::setTreeSampling (string val) {
 	treeSampling = convertStringtoInt(val);
 }
 
-int AnalysisSettings::getTreeSampling () {
-	return treeSampling;
+void AnalysisSettings::setTreeManipulationFalse () {
+	manipulateTreeTopology = false;
 }
 
+void AnalysisSettings::setLogPhylogramsTrue () {
+	logPhylograms = true;
+}
 
+// default settings for substitution models, clock flavour, and tree priors
+void AnalysisSettings::intializeDefaults () {
+	string init[] = {"JC", "HKY", "GTR", "JC+G", "HKY+G", "GTR+G"}; // initialized set; may be superseded by user input
+	vector <string> defaultModels(init, init + sizeof(init) / sizeof(string));
+	models = defaultModels;
+	
+	string defClock = "ucln";
+	string defTreePr = "bd";
+	vector <string> defaultClock;
+	defaultClock.push_back(defClock);
+	vector <string> defaultTreePr;
+	defaultTreePr.push_back(defTreePr);
+	
+	clockFlavours = defaultClock;
+	treePriors = defaultTreePr;
+}
 
-void AnalysisSettings::setClockFlavour (string val) {
-	clockFlavour = val;
-	checkClockFlavour(clockFlavour);
+void AnalysisSettings::setSubModels (vector <string> const& subModels) {
+	models = subModels;
+}
+
+int AnalysisSettings::getNumSubModels () {
+	return models.size();
+}
+
+string AnalysisSettings::getSubModel (int const& modelIndex) {
+	return models[modelIndex];
 }
 
 void AnalysisSettings::setClockFlavours (vector <string> const& clockVals) {
@@ -125,31 +111,15 @@ string AnalysisSettings::getClockFlavour (int const& clockIndex) {
 	return clockFlavours[clockIndex];
 }
 
-vector <string> AnalysisSettings::getClockFlavours () {
-	return clockFlavours;
+int AnalysisSettings::getNumClockFlavours () {
+	return clockFlavours.size();
 }
 
-
-
-void AnalysisSettings::setTreeManipulationFalse () {
-	manipulateTreeTopology = false;
-}
-
-bool AnalysisSettings::getTreeManipulation () {
-	return manipulateTreeTopology;
-}
-
-void AnalysisSettings::setLogPhylogramsTrue () {
-	logPhylograms = true;
-}
-
-// bool AnalysisSettings::getLogPhylograms () {
-// 	return logPhylograms;
-// }
-
-void AnalysisSettings::setTreePrior (string val) {
-	treePrior = val;
-	checkTreePrior(treePrior);
+void AnalysisSettings::setTreePriors (vector <string> const& treePriorVals) {
+	treePriors = treePriorVals;
+	for (int i = 0; i < (int)treePriors.size(); i++) {
+		checkTreePrior(treePriors[i]);
+	}
 }
 
 bool AnalysisSettings::checkTreePrior (string const& treePriorString) {
@@ -168,10 +138,13 @@ bool AnalysisSettings::checkTreePrior (string const& treePriorString) {
 	return cool;
 }
 
-// string AnalysisSettings::getTreePrior () {
-// 	return treePrior;
-// }
+string AnalysisSettings::getTreePrior (int const& treePriorIndex) {
+	return treePriors[treePriorIndex];
+}
 
+int AnalysisSettings::getNumTreePriors () {
+	return treePriors.size();
+}
 
 void AnalysisSettings::setRootPrior (vector <string> const& rootPriorVals) {
 	rootPrior = rootPriorVals;
@@ -196,15 +169,6 @@ void AnalysisSettings::setRootPrior (vector <string> const& rootPriorVals) {
 	checkValidFloat(rootPrior[2]); // max (unif) or stdev (norm)
 }
 
-// void AnalysisSettings::setRootPriorOLD (string val1, string val2, string val3) {
-// 	checkPriorFlavour(val1);
-// 	rootPrior.push_back(val1); // flavour; unif or norm
-// 	checkValidFloat(val2);
-// 	rootPrior.push_back(val2); // min (unif) or mean (norm)
-// 	checkValidFloat(val3);
-// 	rootPrior.push_back(val3); // max (unif) or stdev (norm)
-// }
-
 bool AnalysisSettings::checkPriorFlavour (string & priorString) {
 	bool cool = true;
 	if (priorString != "unif" && priorString != "norm") {
@@ -220,16 +184,6 @@ bool AnalysisSettings::checkPriorFlavour (string & priorString) {
 	return cool;
 }
 
-
-
-// vector <string> AnalysisSettings::getRootPrior () { // include check for null
-// 	return rootPrior;
-// }
-
 void AnalysisSettings::setOverwriteTrue () {
 	overwrite = true;
 }
-
-// bool AnalysisSettings::getOverwrite () {
-// 	return overwrite;
-// }

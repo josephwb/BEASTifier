@@ -3,54 +3,47 @@
 
 class AnalysisSettings {
 	
-	string treePrior, clockFlavour;
+	string treePrior;
 	bool manipulateTreeTopology, logPhylograms, overwrite;
 	int mcmcLength, screenSampling, parameterSampling, treeSampling;
-	vector <string> rootPrior, models, clockFlavours; // allow looping over clock flavours ***
+	vector <string> rootPrior, models, clockFlavours, treePriors;
 		
 public:
 	
 	vector <string> readListFromFile(string const& fileName);
-	void initializeSubModels ();
+	void intializeDefaults ();
 	
-	void setSubModels (vector <string> const& subModels);
-	//void setSubModelsOLD (string & filename);
-	vector <string> getSubModels ();
-	string getSubModel (int const& modelIndex);
-	
-	
+// mcmc parameters
 	void setMcmcLength (string val);
-	int getMcmcLength ();
 	void setScreenSampling (string val);
-	int getScreenSampling ();
 	void setParameterSampling (string val);
-	int getParameterSampling ();
 	void setTreeSampling (string val);
-	int getTreeSampling ();
-	
-	void setClockFlavours (vector <string> const&  clockVals);
-	void setClockFlavour (string val);
-	bool checkClockFlavour (string const& clockString);
-	string getClockFlavour (int const& clockIndex);
-	vector <string> getClockFlavours ();
 	
 	void setTreeManipulationFalse ();
-	bool getTreeManipulation ();
 	void setLogPhylogramsTrue ();
-	//bool getLogPhylograms ();
-	
-	void setTreePrior (string val);
-	bool checkTreePrior (string const& treePriorString);
-	//string getTreePrior ();
 	
 	void setRootPrior (vector <string> const& rootPriorVals);
-	//void setRootPriorOLD (string val1, string val2, string val3);
-	
-	
 	bool checkPriorFlavour (string & priorString);
-	//vector <string> getRootPrior ();
+	
 	void setOverwriteTrue ();
-	//bool getOverwrite ();
+	
+// values to loop over
+	void setSubModels (vector <string> const& subModels);
+	int getNumSubModels ();
+	string getSubModel (int const& modelIndex);
+	
+	void setClockFlavours (vector <string> const&  clockVals);
+	bool checkClockFlavour (string const& clockString);
+	string getClockFlavour (int const& clockIndex);
+	int getNumClockFlavours ();
+	
+	
+	void setTreePriors (vector <string> const& treePriorVals);
+//	void setTreePrior (string val);
+	bool checkTreePrior (string const& treePriorString);
+	//string getTreePrior ();
+	string getTreePrior (int const& treePriorIndex);
+	int getNumTreePriors ();
 	
 	void readConfigFile (string const& fileName);
 	

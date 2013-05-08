@@ -5,3 +5,4 @@
 4. implement random local clock - DONE
 5. allow more nuanced user priors
 6. update help/usage - DONE
+7. allow looping over tree priors - DONE!

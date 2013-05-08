@@ -76,7 +76,7 @@ public:
 	void writeTreeLogs (ofstream & BEAST_xml_code, string const& clockFlavour,
 		bool const& logPhylograms, int const& treeSampling);
 
-	BEASTXML (SimData & data, int const& modelIndex, int const& clockIndex, AnalysisSettings ASet);
+	BEASTXML (SimData & data, int const& modelIndex, int const& clockIndex, int const& treePriorIndex, AnalysisSettings ASet);
 	~BEASTXML () {};
 };
 

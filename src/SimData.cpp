@@ -113,14 +113,6 @@ void SimData::setNumTaxaChar (string & seqFileName, int & numTaxa, int & numChar
 	inputUserFile.close();
 }
 
-// int SimData::getNumChar () {
-// 	return numChar;
-// }
-
-// int SimData::getNumTaxa () {
-// 	return numTaxa;
-// }
-
 vector < vector <string> > SimData::collectTaxaAlignment (string & seqFileName, int const& numTaxa,
 	int const& numChar, bool const& interleavedData)
 {
@@ -250,10 +242,6 @@ vector < vector <string> > SimData::collectTaxaAlignment (string & seqFileName, 
 	return taxaAlignment;
 }
 
-// vector < vector <string> > SimData::getTaxaAlignment () {
-// 	return taxaAlignment;
-// }
-
 string SimData::setRootName (string const& stringToBreak) {
 // form: b_1_d_0.5_a_0.9_n_100_sim_JC_rep_4.NEX - 12 root elements
 	string desired = stringToBreak;
@@ -261,10 +249,6 @@ string SimData::setRootName (string const& stringToBreak) {
 	desired = removeStringSuffix(desired, '.', done); // removes last instance of '.'
 	return desired;
 }
-
-// string SimData::getRootName () {
-// 	return root;
-// }
 
 string SimData::getTreeName(string const& rootName) {
 // form: b_1_d_0.5_a_0.9_n_100_sim_JC_rep_4 - 12 elements
@@ -303,7 +287,3 @@ string SimData::collectStartingTreePhylip (string & fileName, bool & starterTree
 	}
 	return treeString;
 }
-
-// string SimData::getStartingTree () {
-// 	return starterTree;
-// }
