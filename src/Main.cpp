@@ -1,5 +1,4 @@
 /*
-
 ************************************************
             BEASTifier version 0.41
                 Joseph W. Brown
@@ -37,7 +36,6 @@ where:
 	-rprior: specify prior for root age. One of 'unif'' or 'norm'.
 	   - if 'unif', expecting '-rprior unif min_value max_value'.
 	   - if 'norm', expecting '-rprior norm mean_value stdev_value'.
-
 */
 
 #include <iostream>
