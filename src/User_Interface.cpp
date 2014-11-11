@@ -90,7 +90,7 @@ void usage() {
 	<< "         - e.g. 'GTR+IG' = good; 'GTR+I+G' no es bueno." << endl
 	<< "      - default: -mods JC HKY GTR JC+G HKY+G GTR+G" << endl
 	<< "   -clock: list of flavour(s) of clock model to implement." << endl
-	<< "      - supported models: 'strict' or 'ucln' of 'uced'" << endl
+	<< "      - supported models: 'strict' or 'ucln' or 'uced'" << endl
 	<< "      - default = -clock ucln" << endl
 	<< "   -mcmc: the number of mcmc generations to run analysis." << endl
 	<< "      - default: -mcmc 20000000" << endl
