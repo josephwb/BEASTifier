@@ -65,7 +65,7 @@ where 'config_filename' contains all analysis settings. Parameters are listed on
 	-rprior: specify prior for root age.
 	   - supported: 'unif'' or 'norm'.
 	   - if 'unif', expecting '-rprior unif min_value max_value'.
-	   - if 'norm', expecting -rprior norm mean_value stdev_value'.
+	   - if 'norm', expecting '-rprior norm mean_value stdev_value'.
 	-overwrite: overwrite existing files.
 	   - default = don't overwrite; warn instead.
 
