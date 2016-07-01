@@ -5,8 +5,8 @@
 
 using namespace std;
 
-#include "General.h";
-#include "SimData.h";
+#include "General.h"
+#include "SimData.h"
 
 extern bool DEBUG;
 

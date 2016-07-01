@@ -8,7 +8,7 @@
 using namespace std;
 
 #include "General.h"
-#include "Analysis_Settings.h";
+#include "Analysis_Settings.h"
 #include "User_Interface.h"
 
 extern bool DEBUG;

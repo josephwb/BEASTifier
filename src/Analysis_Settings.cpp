@@ -6,8 +6,8 @@
 
 using namespace std;
 
-#include "General.h";
-#include "Analysis_Settings.h";
+#include "General.h"
+#include "Analysis_Settings.h"
 
 
 AnalysisSettings::AnalysisSettings ()

@@ -9,7 +9,7 @@ using namespace std;
 
 #include "General.h"
 #include "Analysis_Settings.h"
-#include "SimData.h";
+#include "SimData.h"
 #include "BEAST_XML.h"
 
 extern bool DEBUG;
