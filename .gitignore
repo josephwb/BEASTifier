@@ -3,3 +3,6 @@
 .Rhistory
 OLD.tgz
 data
+*.o
+BEASTifier
+
