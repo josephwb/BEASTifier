@@ -32,7 +32,7 @@ BEASTifier utilizes a configuration file for all analysis parameters. Call as:
 	./BEASTifier -config config_filename
 
 where 'config_filename' contains all analysis settings. Parameters are listed one per line, in any order. The character '#' is used for comments.
-###Arguments:
+### Arguments:
 
 	-alist: filename
 	   - name of text file listing alignment filenames.
